@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="https://fav.farm/▪️">
+  <style>
+    
+    body {
+      /* image on the very edge of viewport */
+      margin: 0;
+
+      /* use space-between to put thing on the absolute left and right edge */
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      /* why didn't this center them vertically???? */
+      align-items: center;
+
+      /* inspect the page, and find that body is only as tall as is required by its content */
+      /* therefore need to tell body to use all available area */
+      height: 100vh;
+      
+      /* it'd be ok to just make these #s manually, like with literals */
+      /* --image-side: 2rem; */
+      /* oh cool, let me try this one. seems ok also */
+      --image-side: min(calc(100vw / 6), calc(100vh/3));
+    }
+    img {
+      width: var(--image-side); /*it'd be ok to just make these #s manually, like with literals */
+    }
+    div {
+      /*it'd be ok to just make these #s manually, like with literals */
+      width: calc( 3 * var(--image-side));
+      
+      /*it'd be ok to just make these #s manually, like with literals */
+      height: calc( 3 * var(--image-side));
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img:nth-child(1) {
+      align-self: start;
+    }
+    img:nth-child(3) {
+      align-self: end;
+    }
+    #left {
+      flex-direction: column-reverse;
+    }
+  </style>
+</head>
+<body>
+  <!-- to make stairs I'm needing to use some different flex rules depending on which side or row I'm on. so I will not want all the images all together, but rather have 2 or 3 subdivisions -->
+  <!-- <img src="https://picsum.photos/200/200?random=1" alt="">
+  <img src="https://picsum.photos/200/200?random=2" alt="">
+  <img src="https://picsum.photos/200/200?random=3" alt="">
+  <img src="https://picsum.photos/200/200?random=4" alt="">
+  <img src="https://picsum.photos/200/200?random=5" alt="">
+  <img src="https://picsum.photos/200/200?random=6" alt=""> -->
+
+  <div id="left">
+    <img src="https://picsum.photos/200/200?random=1" alt="">
+    <img src="https://picsum.photos/200/200?random=2" alt="">
+    <img src="https://picsum.photos/200/200?random=3" alt="">
+  </div>
+
+  <div id="right">
+    <img src="https://picsum.photos/200/200?random=4" alt="">
+    <img src="https://picsum.photos/200/200?random=5" alt="">
+    <img src="https://picsum.photos/200/200?random=6" alt="">
+  </div>
+</body>
+</html>
